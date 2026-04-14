@@ -1,5 +1,4 @@
 ---
-#https://www.notion.so/n8n/Frontmatter-432c2b8dff1f43d4b1c8d20075510fe4
 contentType: reference
 ---
 
@@ -33,3 +32,7 @@ Outbound traffic may appear to originate from any of:
 * 20.218.238.112/28
 * 4.182.64.64/28
 * 20.218.174.0/28
+* 4.184.78.240/28
+* 20.79.32.32/28
+* 51.116.119.64/28
+* 51.107.180.112/28

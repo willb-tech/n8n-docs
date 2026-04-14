@@ -1,5 +1,4 @@
 ---
-#https://www.notion.so/n8n/Frontmatter-432c2b8dff1f43d4b1c8d20075510fe4
 contentType: howto
 ---
 
@@ -15,3 +14,7 @@ If running n8n using Docker: depending on your Docker setup, you may lose the pa
 * Set the `N8N_REINSTALL_MISSING_PACKAGES` environment variable to `true`.
 
 The second option might increase startup time and may cause health checks to fail.
+
+## Prevent loading community nodes on n8n cloud
+
+If your n8n cloud instance crashes and fails to start, you can prevent installed community nodes from loading on instance startup. Visit the [Cloud Admin Panel](/manage-cloud/cloud-admin-dashboard.md) > **Manage** and toggle **Disable all community nodes** to **`true`**. This toggle is only visible when you allow community node installation.

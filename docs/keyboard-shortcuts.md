@@ -1,5 +1,4 @@
 ---
-#https://www.notion.so/n8n/Frontmatter-432c2b8dff1f43d4b1c8d20075510fe4
 tags:
   - Keyboard
   - Move canvas
@@ -44,6 +43,8 @@ n8n provides keyboard shortcuts for some actions.
 
 ### Nodes on the canvas
 
+- **Double click** on a node: open the node details
+- **Ctrl/Cmd** + **Double click** on a sub-workflow node: open the sub-workflow in a new tab
 - **Ctrl** + **a**: select all nodes
 - **Ctrl** + **v**: paste nodes
 - **Shift** + **s**: add sticky note
@@ -63,10 +64,11 @@ n8n provides keyboard shortcuts for some actions.
  - **P**: pin data in node. Refer to [Data pinning](/data/data-pinning.md) for more information.
  - **Shift** + **ArrowLeft**: select all nodes left of the current one
  - **Shift** + **ArrowRight**: select all nodes right of the current one
+ - **Ctrl/Cmd** + **Shift** + **o** on a sub-workflow node: open the sub-workflow in a new tab 
 
 ## Node panel
 
- - **Tab**: open the Node Panel
+ - **N**: open the Node Panel
  - **Enter**: insert selected node into workflow
  - **Escape**: close Node panel
 
@@ -79,3 +81,13 @@ n8n provides keyboard shortcuts for some actions.
 ## Within nodes
 
 - **=**: in an empty parameter input, this switches to [expressions](/glossary.md#expression-n8n) mode.
+
+## Command bar
+
+The Command Bar provides quick access to actions and navigation throughout n8n. Access it using **Ctrl/Cmd + K**, or click the magnifying glass icon on the canvas. Commands adapt based on your current view and permissions.
+
+* **Workflow actions:** Add nodes, save, test, tidy up, publish/unpublish, duplicate, import/export, archive, delete
+* **Resource navigation:** Create and open workflows, credentials, data tables, projects; access recent resources
+* **Execution actions:** Debug, copy, retry, stop, or delete executions
+* **General navigation:** Access Templates, Variables, Insights, Settings, Help resources, and Documentation
+

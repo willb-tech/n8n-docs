@@ -17,7 +17,6 @@ Set the meta title and meta description in the frontmatter
 -->
 
 ---
-#https://www.notion.so/n8n/Frontmatter-432c2b8dff1f43d4b1c8d20075510fe4
 title: _Name_ node documentation
 description: Learn how to use the _Name_ node in n8n. Follow technical documentation to integrate _Name_ node into your workflows.
 contentType: [integration, reference]
@@ -26,7 +25,7 @@ contentType: [integration, reference]
 <!-- 
 The title should be the name of the integration 
 Match the brand name exactly. For example, GitHub NOT Github
-When you add this node to mkdocs.yml in the navigation, prepend it with the `_Name_:` only, for example ActiveCampaign: _relativepath_
+When you add this node to nav.yml in the navigation, prepend it with the `_Name_:` only, for example ActiveCampaign: _relativepath_
 -->
 # _Name_ node
 

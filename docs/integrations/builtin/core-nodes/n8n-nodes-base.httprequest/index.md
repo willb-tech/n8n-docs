@@ -1,5 +1,4 @@
 ---
-#https://www.notion.so/n8n/Frontmatter-432c2b8dff1f43d4b1c8d20075510fe4
 title: HTTP Request node documentation
 description: Learn how to use the HTTP Request node in n8n. Follow technical documentation to integrate HTTP Request node into your workflows.
 contentType: [integration, reference]
@@ -8,7 +7,7 @@ priority: critical
 
 # HTTP Request node
 
-The HTTP Request node is one of the most versatile nodes in n8n. It allows you to make HTTP requests to query data from any app or service with a REST API.
+The HTTP Request node is one of the most versatile nodes in n8n. It allows you to make HTTP requests to query data from any app or service with a REST API. You can use the HTTP Request node a regular node or attached to an [AI agent](/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.agent/tools-agent.md) to use as a [tool](/advanced-ai/examples/understand-tools.md){ data-preview }.
 
 When using this node, you're creating a REST API call. You need some understanding of basic API terminology and concepts.
 
@@ -88,7 +87,9 @@ If you need to send a body with your API request, turn this option on.
 
 Then select the **Body Content Type** that best matches the format for the body content you wish to send.
 
+<!-- vale Vale.Spelling = NO -->
 #### Form URLencoded
+<!-- vale Vale.Spelling = YES -->
 
 Use this option to send your body as `application/x-www-form-urlencoded`.
 
@@ -137,7 +138,7 @@ Refer to your service's API documentation for detailed guidance on how to format
 
 Use this option to send raw data in the body.
 
-* **Content Type**: Enter the `Content-Type` header to use for the raw body content. Refer to the IANA [Media types](https://www.iana.org/assignments/media-types/media-types.xhtml){:target=_blank .external-link} documentation for a full list of MIME content types.
+* **Content Type**: Enter the `Content-Type` header to use for the raw body content. Refer to the IANA [Media types](https://www.iana.org/assignments/media-types/media-types.xhtml) documentation for a full list of MIME content types.
 * **Body**: Enter the raw body content to send.
 
 Refer to your service's API documentation for detailed guidance.
@@ -224,7 +225,7 @@ n8n provides built-in variables for working with HTTP node requests and response
 
 Use this option if you need to specify an HTTP proxy.
 
-Enter the **Proxy** the request should use.
+Enter the **Proxy** the request should use. This takes precedence over global settings defined with the [`HTTP_PROXY`, `HTTPS_PROXY`, or `ALL_PROXY` environment variables](/hosting/configuration/environment-variables/deployment.md).
 
 ### Timeout
 
@@ -232,13 +233,56 @@ Use this option to set how long the node should wait for the server to send resp
 
 Enter the **Timeout** time to wait in milliseconds.
 
+## Tool-only options
+
+The following options are only available when attached to an [AI agent](/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.agent/tools-agent.md) as a [tool](/advanced-ai/examples/understand-tools.md){ data-preview }.
+
+### Optimize Response
+
+Whether to optimize the tool response to reduce the amount of data passed to the LLM. Optimizing the response can reduce costs and can help the LLM ignore unimportant details, often leading to better results.
+
+When optimizing responses, you select an expected response type, which determines other options you can configure. The supported response types are:
+
+#### JSON
+
+When expecting a **JSON** response, you can configure which parts of the JSON data to use as a response with the following choices:
+
+* **Field Containing Data**: This field identifies a specific part of the JSON object that contains your relevant data. You can leave this blank to use the entire response.
+* **Include Fields**: This is how you choose which fields you want in your response object. There are three choices:
+	* **All**: Include all fields in the response object.
+	* **Selected**: Include only the fields specified below.
+		* **Fields**: A comma-separated list of fields to include in the response. You can use dot notation to specify nested fields. You can drag fields from the Input panel to add them to the field list.
+	* **Exclude**: Include all fields *except* the fields specified below.
+		* **Fields**: A comma-separated list of fields to exclude from the response. You can use dot notation to specify nested fields. You can drag fields from the Input panel to add them to the field list.
+
+#### HTML
+
+When expecting **HTML**, you can identify the part of an HTML document relevant to the LLM and optimize the response with the following options:
+
+* **Selector (CSS)**: A specific element or element type to include in the response HTML. Uses the `body` element by default.
+* **Return Only Content**: Whether to strip HTML tags and attributes from the response, leaving only the actual content. This uses fewer tokens and may be easier for the model to understand.
+	* **Elements To Omit**: A comma-separated list of CSS selectors to exclude when extracting content.
+* **Truncate Response**: Whether to limit the response size to save tokens.
+	* **Max Response Characters**: The maximum number of characters to include in the HTML response. The default value is 1000.
+
+#### Text
+
+When expecting a generic **Text** response, you can optimize the results with the following options:
+
+* **Truncate Response**: Whether to limit the response size to save tokens.
+	* **Max Response Characters**: The maximum number of characters to include in the HTML response. The default value is 1000.
+
 ## Import curl command
 
-[curl](https://curl.se/){:target=_blank .external-link} is a command line tool and library for transferring data with URLs.
+[curl](https://curl.se/) is a command line tool and library for transferring data with URLs.
 
 You can use curl to call REST APIs. If the API documentation of the service you want to use provides curl examples, you can copy them out of the documentation and into n8n to configure the HTTP Request node.
 
 Import a curl command:
+
+/// note | Import format
+This option always imports any parameter values as strings. If you wish to preserve the type of numbers and booleans in your request, switch **Using Fields Below** to **Using JSON** and paste your JSON object containing the parameters.
+///
 
 1. From the HTTP Request node's **Parameters** tab, select **Import cURL**. The **Import cURL command** modal opens.
 2. Paste your curl command into the text box.

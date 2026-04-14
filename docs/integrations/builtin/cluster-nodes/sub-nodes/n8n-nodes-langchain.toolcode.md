@@ -1,5 +1,4 @@
 ---
-#https://www.notion.so/n8n/Frontmatter-432c2b8dff1f43d4b1c8d20075510fe4
 title: Custom Code Tool node documentation
 description: Learn how to use the Custom Code Tool node in n8n. Follow technical documentation to integrate Custom Code Tool node into your workflows.
 contentType: [integration, reference]
@@ -15,10 +14,6 @@ On this page, you'll find the node parameters for the Custom Code Tool node and 
 --8<-- "_snippets/integrations/builtin/cluster-nodes/sub-node-expression-resolution.md"
 
 ## Node parameters
-
-### Name
-
-Give your custom code a name. It can't contain whitespace.
 
 ### Description
 
@@ -52,4 +47,4 @@ return myString.toLowerCase();
 
 --8<-- "_snippets/integrations/builtin/cluster-nodes/langchain-overview-link.md"
 
---8<-- "_glossary/ai-glossary.md"
+

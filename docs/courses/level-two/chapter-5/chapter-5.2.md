@@ -1,5 +1,4 @@
 ---
-#https://www.notion.so/n8n/Frontmatter-432c2b8dff1f43d4b1c8d20075510fe4
 contentType: tutorial
 ---
 
@@ -122,7 +121,7 @@ The third part of the workflow consists of five nodes:
         {
         "parameters": {},
         "id": "c0236456-40be-4f8f-a730-e56cb62b7b5c",
-        "name": "When clicking \"Test workflow\"",
+        "name": "When clicking \"Execute workflow\"",
         "type": "n8n-nodes-base.manualTrigger",
         "typeVersion": 1,
         "position": [
@@ -430,7 +429,7 @@ The third part of the workflow consists of five nodes:
             ]
         ]
         },
-        "When clicking \"Test workflow\"": {
+        "When clicking \"Execute workflow\"": {
         "main": [
             [
             {
